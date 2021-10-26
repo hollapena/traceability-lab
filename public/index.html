@@ -11,8 +11,11 @@
 <body>
     <h1>Command Line Guide</h1>
     <section></section>
+   <button id="button">Click Here for an Error</button>
 
     <script>
+        let button = document.getElementById('button')
+        button.addEventListener('click', errorTest)
         function errorTest(evt){
             evt.preventDefault()
             axios.get('/api/commands')
