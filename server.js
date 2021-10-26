@@ -16,7 +16,7 @@ app.get('/api/commands', (req,res) => {
     try {
         nonExistentFunction();
       } catch (error) {
-        console.error(error);
+        rollbar.error(error);
       }
 })
 
