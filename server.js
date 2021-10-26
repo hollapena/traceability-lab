@@ -29,7 +29,7 @@ app.get('/style', (req,res) =>{
     res.sendFile(path.join(__dirname, '/public/styles.css'))
 })
 
-
+app.use(rollbar.errorHandler())
 
 const port = process.env.PORT || 4546
 
