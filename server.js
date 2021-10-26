@@ -12,6 +12,14 @@ const app = express()
 
 app.use(express.json())
 
+app.get('/api/commands', (req,res) => {
+    try {
+        nonExistentFunction();
+      } catch (error) {
+        console.error(error);
+      }
+})
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
     rollbar.info('html file served successfully')
@@ -20,6 +28,8 @@ app.get('/', (req, res) => {
 app.get('/style', (req,res) =>{
     res.sendFile(path.join(__dirname, '/public/styles.css'))
 })
+
+
 
 const port = process.env.PORT || 4546
 
