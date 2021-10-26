@@ -11,7 +11,9 @@
 <body>
     <h1>Command Line Guide</h1>
     <section></section>
-   <button id="button">Click Here for an Error</button>
+   <button id="button">Click Here for an ERROR</button>
+   <button id="critical-button">Click here for a CRITICAL error</button>
+   <button id="warning-button">Click here for a WARNING</button>
 
     <script>
         let button = document.getElementById('button')
@@ -19,6 +21,22 @@
         function errorTest(evt){
             evt.preventDefault()
             axios.get('/api/commands')
+                .then(response => {
+                    console.log(res.data)
+                })}
+                let criticalButton = document.getElementById('critical-button')
+        criticalButton.addEventListener('click', criticalTest)
+        function criticalTest(evt){
+            evt.preventDefault()
+            axios.get('/api/critical')
+                .then(response => {
+                    console.log(res.data)
+                })}
+                let warningButton = document.getElementById('warning-button')
+        button.addEventListener('click', warningTest)
+        function warningTest(evt){
+            evt.preventDefault()
+            axios.get('/api/warning')
                 .then(response => {
                     console.log(res.data)
                 })}

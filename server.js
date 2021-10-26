@@ -20,6 +20,21 @@ app.get('/api/commands', (req,res) => {
       }
 })
 
+app.get('/api/critical', (req,res) => {
+    try {
+        nonExistentFunction();
+    } catch (error) {
+        rollbar.critical('This is a CRITICAL error');
+    }})
+
+app.get('/api/warning', (req,res) => {
+    try {
+        nonExistentFunction();
+
+    } catch (error) {
+        rollbar.warning('This is a WARNING');
+    }})
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
     rollbar.info('html file served successfully')
